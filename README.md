@@ -6,7 +6,7 @@ The analysis in the earlier part of our paper uses the code in the `analysis` fo
 
 ## Codebase
 
-EffOPD is implemented based on verl. We mainly modify the following files:
+EffOPD is implemented based on verl and GOPD. We mainly modify the following files:
 
 - `ppo_trainer.yaml`
 - `fsdp_workers.py`
