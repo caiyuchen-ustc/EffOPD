@@ -29,3 +29,24 @@ Here:
 - `trainer.enable_iterative_test=True` enables the EffOPD extrapolation search.
 - `trainer.max_test_iterations=5` sets the maximum number of extrapolated candidate parameters to evaluate at each exponential checkpoint. In our experiments, this value is set to `5`.
 - `data.iterative_test_files=xxx.parquet` specifies the data file used to construct the lightweight validation set for immediate validation. Please replace `xxx.parquet` with the actual path to the validation parquet file.
+
+If you find this project interesting, feel free to ⭐ star the repository or open an issue for discussion!
+
+If you use this code in your research, please cite:
+```bibtex
+@misc{cai2026learningforeseeunveilingunlocking,
+      title={Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation}, 
+      author={Yuchen Cai and Ding Cao and Liang Lin and Chunxi Luo and Xin Xu and Kai Yang and Weijie Liu and Saiyong Yang and Tianxiang Zhao and Guangzhong Sun and Guiquan Liu and Junfeng Fang},
+      year={2026},
+      eprint={2605.11739},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2605.11739}, 
+}
+
+@article{cai2025predictability,
+  title={On Predictability of Reinforcement Learning Dynamics for Large Language Models},
+  author={Cai, Yuchen and Cao, Ding and Xu, Xin and Yao, Zijun and Huang, Yuqing and Tan, Zhenyu and Zhang, Benyi and Liu, Guiquan and Fang, Junfeng},
+  journal={arXiv preprint arXiv:2510.00553},
+  year={2025}
+}
