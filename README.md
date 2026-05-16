@@ -34,14 +34,11 @@ If you find this project interesting, feel free to ⭐ star the repository or op
 
 If you use this code in your research, please cite:
 ```bibtex
-@misc{cai2026learningforeseeunveilingunlocking,
-      title={Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation}, 
-      author={Yuchen Cai and Ding Cao and Liang Lin and Chunxi Luo and Xin Xu and Kai Yang and Weijie Liu and Saiyong Yang and Tianxiang Zhao and Guangzhong Sun and Guiquan Liu and Junfeng Fang},
-      year={2026},
-      eprint={2605.11739},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2605.11739}, 
+@article{cai2026learning,
+  title={Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation},
+  author={Cai, Yuchen and Cao, Ding and Lin, Liang and Luo, Chunxi and Xu, Xin and Yang, Kai and Liu, Weijie and Yang, Saiyong and Zhao, Tianxiang and Sun, Guangzhong and others},
+  journal={arXiv preprint arXiv:2605.11739},
+  year={2026}
 }
 
 @article{cai2025predictability,
