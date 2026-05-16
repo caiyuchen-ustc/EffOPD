@@ -14,6 +14,8 @@ EffOPD is implemented based on verl and GOPD. We mainly modify the following fil
 
 ## Training EffOPD
 
+The training dataset can be download from : https://huggingface.co/datasets/Keven16/G-OPD-Training-Data
+
 To launch EffOPD training, please start from the original bash script used for training OPD, and add the following arguments:
 
 ```bash
