@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-EFFOPD_VERL_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
-export EFFOPD_VERL_ROOT
-export PYTHONPATH="$EFFOPD_VERL_ROOT"
-cd "$EFFOPD_VERL_ROOT/../.."
-python3 "$EFFOPD_VERL_ROOT/scripts/check_effopd_import.py"
-export PYTHONUNBUFFERED=1
-export WANDB_MODE="${WANDB_MODE:-offline}"
-export USED_MODEL="${USED_MODEL:-no_api}"
-unset ROCR_VISIBLE_DEVICES
+export WANDB_API_KEY=""
+export WANDB_MODE=online
+export USED_MODEL="no_api"
 
 STUDENT_MODEL="${STUDENT_MODEL:-models/Qwen3-4B}"
 TEACHER_MODEL="${TEACHER_MODEL:-models/Qwen3-4B-Non-Thinking-RL-Math}"
@@ -19,7 +13,6 @@ QUICK_VAL_FILE="${QUICK_VAL_FILE:-data/quick_validation/math_validation.parquet}
 OUTPUT_DIR="${OUTPUT_DIR:-checkpoints/qwen3_4b_math}"
 
 python3 -m verl.trainer.main_ppo \
-        ++ray_kwargs.ray_init.runtime_env.env_vars.PYTHONPATH="$EFFOPD_VERL_ROOT" \
         algorithm.adv_estimator=grpo \
         algorithm.rollout_correction.rollout_is=token \
         algorithm.rollout_correction.rollout_is_threshold=5.0 \
