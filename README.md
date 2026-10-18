@@ -65,11 +65,9 @@ python EffOPD/verl/scripts/subdata.py \
   --num-samples 50 --sampling random
 ```
 
-Existing output files are reused unchanged. Training reads these files and does not generate them automatically. Regular evaluation uses DeepMath-103K for math and the Eurus code validation set for code.
-
 ### Training scripts
 
-Run from the repository root. Models and datasets default to `models/` and `data/`; use `STUDENT_MODEL`, `TEACHER_MODEL`, `TRAIN_FILE`, `VAL_FILES`, and `QUICK_VAL_FILE` to override paths. Both scripts use the quick-validation files prepared above.
+Run from the repository root. Models and datasets default to `models/` and `data/`, use `STUDENT_MODEL`, `TEACHER_MODEL`, `TRAIN_FILE`, `VAL_FILES`, and `QUICK_VAL_FILE` to override paths. Both scripts use the quick-validation files prepared above.
 
 **Qwen3-4B math:** distill Qwen3-4B-Non-Thinking-RL-Math into Qwen3-4B on DeepMath with EffOPD.
 
