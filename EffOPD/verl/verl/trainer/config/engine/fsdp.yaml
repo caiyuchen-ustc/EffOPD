@@ -29,7 +29,7 @@ fsdp_size: -1
 forward_prefetch: False
 
 # model dtype of fsdp
-model_dtype: fp32
+model_dtype: bfloat16
 
 # Whether to use original parameters in fsdp. Only avaiable in fsdp1
 use_orig_params: false

@@ -31,7 +31,7 @@ from transformers import (
     AutoModelForCausalLM,
     AutoModelForSequenceClassification,
     AutoModelForTokenClassification,
-    AutoModelForVision2Seq,
+    # AutoModelForVision2Seq,
     GenerationConfig,
     MistralForSequenceClassification,
     PretrainedConfig,
@@ -617,7 +617,7 @@ def patch_valuehead_model(model) -> None:
 
 
 def load_valuehead_model(local_path, torch_dtype, model_config, trust_remote_code):
-    from transformers import AutoModelForCausalLM, AutoModelForTokenClassification, AutoModelForVision2Seq
+    from transformers import AutoModelForCausalLM, AutoModelForTokenClassification
 
     try:
         model = AutoModelForTokenClassification.from_pretrained(
@@ -638,10 +638,7 @@ def load_valuehead_model(local_path, torch_dtype, model_config, trust_remote_cod
 
     from trl import AutoModelForCausalLMWithValueHead
 
-    if type(model_config) in AutoModelForVision2Seq._model_mapping.keys():
-        module_class = AutoModelForVision2Seq
-    else:
-        module_class = AutoModelForCausalLM
+    module_class = AutoModelForCausalLM
     ori_model = module_class.from_pretrained(
         pretrained_model_name_or_path=local_path,
         torch_dtype=torch_dtype,
@@ -656,7 +653,6 @@ def load_valuehead_model(local_path, torch_dtype, model_config, trust_remote_cod
 
 _architecture_to_auto_class = {
     "ForCausalLM": AutoModelForCausalLM,
-    "ForVision2Seq": AutoModelForVision2Seq,
     "ForTokenClassification": AutoModelForTokenClassification,
     "ForSequenceClassification": AutoModelForSequenceClassification,
 }
@@ -669,8 +665,6 @@ def get_hf_auto_model_class(hf_config):
     if has_remote_code:
         auto_class = next(k for k, v in hf_config.auto_map.items() if hf_config.architectures[0] in v)
         match auto_class:
-            case "AutoModelForVision2Seq":
-                actor_module_class = AutoModelForVision2Seq
             case "AutoModelForCausalLM":
                 actor_module_class = AutoModelForCausalLM
             case _:

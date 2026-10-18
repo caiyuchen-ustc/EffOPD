@@ -33,7 +33,29 @@ from io import StringIO
 from unittest.mock import mock_open, patch
 
 import numpy as np
-from pyext import RuntimeModule
+
+import types
+import linecache
+class RuntimeModule:
+    @staticmethod
+    def from_string(name, doc, code):
+        module = types.ModuleType(name, doc)
+        module.__file__ = "<string>"
+        module.__package__ = ""
+
+        sys.modules[name] = module
+
+        filename = "<string>"
+        linecache.cache[filename] = (
+            len(code),
+            None,
+            code.splitlines(True),
+            filename,
+        )
+
+        compiled = compile(code, filename, "exec")
+        exec(compiled, module.__dict__)
+        return module
 
 
 def truncatefn(s, length=300):

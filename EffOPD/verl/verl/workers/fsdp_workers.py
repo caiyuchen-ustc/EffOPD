@@ -356,7 +356,6 @@ class ActorRolloutRefWorker(Worker, DistProfilerExtension):
                     k for k, v in actor_model_config.auto_map.items() if actor_model_config.architectures[0] in v
                 )
                 match auto_class:
-
                     case "AutoModelForCausalLM":
                         actor_module_class = AutoModelForCausalLM
                     case "AutoModelForImageTextToText":
@@ -1399,10 +1398,10 @@ class ActorRolloutRefWorker(Worker, DistProfilerExtension):
             new_results = self._run_iterative_test(test_data, val_reward_fn) 
             new_score = new_results["score"]
 
-            if new_score > best_score:
+            if new_score >= best_score:
                 if self.rank == 0:
                     print(
-                        f"[Iterative Test] Iteration {i}: score improved "
+                        f"[Iterative Test] Iteration {i}: score maintained or improved "
                         f"{best_score:.4f} -> {new_score:.4f} (Δ={new_score - best_score:.4f}), accepted"
                     )
                 best_score = new_score
@@ -1422,7 +1421,7 @@ class ActorRolloutRefWorker(Worker, DistProfilerExtension):
             else:
                 if self.rank == 0:
                     print(
-                        f"[Iterative Test] Iteration {i}: score did not improve "
+                        f"[Iterative Test] Iteration {i}: score decreased "
                         f"{best_score:.4f} -> {new_score:.4f} (Δ={new_score - best_score:.4f}), rejected, rolling back"
                     )
                 
