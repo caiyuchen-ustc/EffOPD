@@ -65,7 +65,7 @@ python EffOPD/verl/scripts/subdata.py \
   --num-samples 50 --sampling random
 ```
 
-Existing output files are reused unchanged. Training reads these files and does not generate them automatically. Regular evaluation uses AIME 2024/2025 for math and the Eurus code validation set for code.
+Existing output files are reused unchanged. Training reads these files and does not generate them automatically. Regular evaluation uses DeepMath-103K for math and the Eurus code validation set for code.
 
 ### Training scripts
 
