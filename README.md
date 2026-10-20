@@ -12,6 +12,8 @@ EffOPD is implemented based on [verl](https://github.com/volcengine/verl) and [G
 - `fsdp_workers.py`
 - `ray_trainer.py`
 
+Our models and training/evaluation datasets for more domains are available at https://huggingface.co/caiyuchen.
+
 ## Installation
 
 Our code is mainly based on [verl](https://github.com/volcengine/verl) (v0.6.1) and [G-OPD](https://github.com/RUCBM/G-OPD). To prepare the environment, please follow these steps from the repository root:
@@ -23,7 +25,6 @@ cd EffOPD/verl
 USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
 python -m pip install math-verify
 python -m pip install --no-deps -e .
-```
 
 ## Training EffOPD
 
