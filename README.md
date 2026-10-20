@@ -25,6 +25,7 @@ cd EffOPD/verl
 USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
 python -m pip install math-verify
 python -m pip install --no-deps -e .
+```
 
 ## Training EffOPD
 
